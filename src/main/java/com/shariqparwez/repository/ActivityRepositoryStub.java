@@ -41,5 +41,10 @@ public class ActivityRepositoryStub implements ActivityRespository {
 		
 		return activity1;
 	}
+
+	@Override
+	public void create(Activity activity) {
+		// should issue a insert statement to the db
+	}
 	
 }
