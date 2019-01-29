@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.shariqparwez.model.Activity;
+import com.shariqparwez.model.User;
 import com.shariqparwez.repository.ActivityRepositoryStub;
 import com.shariqparwez.repository.ActivityRespository;
 
@@ -30,6 +31,13 @@ public class ActivityResource {
 	@Path("{activityId}")
 	public Activity getActivity(@PathParam ("activityId") String activityId){
 		return activityRepository.findActivity(activityId);
+	}
+	
+	@GET
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Path("{activityId}/user")
+	public User getActivityUser(@PathParam ("activityId") String activityId){
+		return activityRepository.findActivity(activityId).getUser();
 	}
 	
 }

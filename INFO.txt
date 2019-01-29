@@ -28,3 +28,11 @@ package: com.shariqparwez
   -H 'Accept: application/json' \
   -H 'Postman-Token: b949d269-7203-44c6-b8ac-db706fd2bae2' \
   -H 'cache-control: no-cache'
+
+  http://localhost:8080/exercise-services/webapi/activities/1234/user
+  
+  curl -X GET \
+  http://localhost:8080/exercise-services/webapi/activities/1234/user \
+  -H 'Accept: application/json' \
+  -H 'Postman-Token: 7b452607-a73d-4065-9c87-b010b2b4b92c' \
+  -H 'cache-control: no-cache'

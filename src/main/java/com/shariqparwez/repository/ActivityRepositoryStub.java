@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.shariqparwez.model.Activity;
+import com.shariqparwez.model.User;
 
 public class ActivityRepositoryStub implements ActivityRespository {
 
@@ -31,6 +32,12 @@ public class ActivityRepositoryStub implements ActivityRespository {
 		activity1.setId("1234");
 		activity1.setDescription("Swimming");
 		activity1.setDuration(55);
+		
+		User user = new User();
+		user.setId("5678");
+		user.setName("Bryan");
+		
+		activity1.setUser(user);
 		
 		return activity1;
 	}
