@@ -1,5 +1,6 @@
 package com.shariqparwez.model;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -8,6 +9,7 @@ public class Activity {
 	private String description;
 	private int duration;
 	
+	@XmlElement(name="desc")
 	public String getDescription() {
 		return description;
 	}
