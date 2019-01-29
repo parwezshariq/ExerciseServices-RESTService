@@ -60,5 +60,18 @@ public class ActivityResource {
 		return activity;
 	}
 	
+	@POST
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("activity")
+	public Activity createActivity(Activity activity) {
+		System.out.println(activity.getDescription());
+		System.out.println(activity.getDuration());
+		
+		activityRepository.create(activity);
+		
+		return activity;
+	}
+	
 }
  
