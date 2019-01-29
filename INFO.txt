@@ -55,3 +55,26 @@ package: com.shariqparwez
   -H 'Postman-Token: a5b5e441-e3f3-4401-aa64-050ca45c6319' \
   -H 'cache-control: no-cache' \
   -d 'duration=55&description=running&undefined='
+  
+  curl -X POST \
+  http://localhost:8080/exercise-services/webapi/activities/activity \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 8fe103e0-61c3-4066-95db-be286e725c87' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"duration":55,
+	"desc":"running"
+}'
+
+curl -X POST \
+  http://localhost:8080/exercise-services/webapi/activities/activity \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 32100af7-d3bd-47a4-b75c-fcc5f8d954f5' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"duration":55,
+	"desc":"running"
+}'
+
