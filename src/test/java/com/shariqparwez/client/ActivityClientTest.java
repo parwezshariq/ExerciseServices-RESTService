@@ -70,5 +70,11 @@ public class ActivityClientTest {
 		
 		assertNotNull(activity);
 	}
+	
+	@Test
+	public void testDelete() {
+		ActivityClient client = new ActivityClient();
+		client.delete("1234");
+	}
 
 }

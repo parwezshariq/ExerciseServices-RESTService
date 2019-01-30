@@ -62,5 +62,10 @@ public class ActivityRepositoryStub implements ActivityRespository {
 		
 		return activity;
 	}
+
+	@Override
+	public void delete(String activityId) {
+		// delete from activity where activityid = ?
+	}
 	
 }

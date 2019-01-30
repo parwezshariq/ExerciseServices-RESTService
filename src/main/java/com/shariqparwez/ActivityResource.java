@@ -3,6 +3,7 @@ package com.shariqparwez;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -96,6 +97,18 @@ public class ActivityResource {
 		activity = activityRepository.update(activity);
 		
 		return Response.ok().entity(activity).build();
+	}
+	
+	@DELETE
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("{activityId}")
+	public Response delete(@PathParam ("activityId") String activityId) {
+		System.out.println(activityId);
+		
+		activityRepository.delete(activityId);
+		
+		return Response.ok().build();
 	}
 	
 }
