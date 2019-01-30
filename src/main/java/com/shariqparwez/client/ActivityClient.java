@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
@@ -39,6 +40,20 @@ public class ActivityClient {
 				.get(new GenericType<List<Activity>>() {});
 	
 		return response;
+	}
+
+	public Activity create(Activity activity) {
+		WebTarget target = client.target("http://localhost:8080/exercise-services/webapi/");
+		
+		Response response = target.path("activities/activity").request(MediaType.APPLICATION_JSON)
+				.post(Entity.entity(activity, MediaType.APPLICATION_JSON));
+		
+		if(response.getStatus() != 200) {
+			throw new RuntimeException(response.getStatus() + ": there was error on ther server.");
+		}
+		
+		
+		return response.readEntity(Activity.class);
 	}
 
 }

@@ -44,5 +44,18 @@ public class ActivityClientTest {
 		
 		client.get("7777");
 	}
+	
+	@Test
+	public void testCreate() {
+		ActivityClient client = new ActivityClient();
+		
+		Activity activity = new Activity();
+		activity.setDescription("Swimming");
+		activity.setDuration(90);
+		
+		activity = client.create(activity);
+		
+		assertNotNull(activity);
+	}
 
 }
