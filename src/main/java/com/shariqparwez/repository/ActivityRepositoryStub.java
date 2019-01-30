@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.shariqparwez.model.Activity;
+import com.shariqparwez.model.ActivitySearch;
 import com.shariqparwez.model.User;
 
 public class ActivityRepositoryStub implements ActivityRespository {
@@ -83,5 +84,21 @@ public class ActivityRepositoryStub implements ActivityRespository {
 		
 		return activities;
 	}
+
+	@Override
+	public List<Activity> findByConstraints(ActivitySearch search) {
+		
+		System.out.println(search.getDurationFrom());
+		
+		List<Activity> activities = new ArrayList<Activity>();
+		
+		Activity activity = new Activity();
+		activity.setId("2345");
+		activity.setDescription("swimming");
+		activity.setDuration(55);
+		
+		activities.add(activity);
+		
+		return activities;	}
 	
 }
