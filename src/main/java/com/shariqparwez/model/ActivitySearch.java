@@ -7,6 +7,14 @@ public class ActivitySearch {
 	private int durationFrom;
 	private int durationTo;
 	private List<String> descriptions;
+	private ActivitySearchType searchType;
+	
+	public ActivitySearchType getSearchType() {
+		return searchType;
+	}
+	public void setSearchType(ActivitySearchType searchType) {
+		this.searchType = searchType;
+	}
 	public int getDurationFrom() {
 		return durationFrom;
 	}

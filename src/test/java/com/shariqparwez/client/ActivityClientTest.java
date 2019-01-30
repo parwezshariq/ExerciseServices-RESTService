@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.shariqparwez.model.Activity;
 import com.shariqparwez.model.ActivitySearch;
+import com.shariqparwez.model.ActivitySearchType;
 
 public class ActivityClientTest {
 
@@ -113,6 +114,7 @@ public class ActivityClientTest {
 		search.setDescriptions(searchValues);
 		search.setDurationFrom(30);
 		search.setDurationTo(55);
+		search.setSearchType(ActivitySearchType.SEARCH_BY_DESCRIPTION);
 		
 		List<Activity> activities = client.search(search);
 		
