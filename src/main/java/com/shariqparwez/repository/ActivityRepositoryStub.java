@@ -69,8 +69,8 @@ public class ActivityRepositoryStub implements ActivityRespository {
 	}
 
 	@Override
-	public List<Activity> findByDescription(List<String> descriptions) {
-		// select * from activities where description in (?,?,?)
+	public List<Activity> findByDescription(List<String> descriptions, int durationFrom, int durationTo) {
+		// select * from activities where description in (?,?,?) and duration > ? and duration < ?
 		
 		List<Activity> activities = new ArrayList<Activity>();
 		

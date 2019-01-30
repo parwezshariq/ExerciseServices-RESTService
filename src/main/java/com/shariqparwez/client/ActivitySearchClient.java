@@ -20,10 +20,12 @@ public class ActivitySearchClient {
 		client = ClientBuilder.newClient();
 	}
 	
-	public List<Activity> search(String param, List<String> searchValues){
+	public List<Activity> search(String param, List<String> searchValues, String secondParam, int durationFrom, String thirdParam, int durationTo){
 		URI uri = UriBuilder.fromUri("http://localhost:8080/exercise-services/webapi")
 				.path("search/activities")
 				.queryParam(param, searchValues)
+				.queryParam(secondParam, durationFrom)
+				.queryParam(thirdParam, durationTo)
 				.build();
 		
 		WebTarget target = client.target(uri);

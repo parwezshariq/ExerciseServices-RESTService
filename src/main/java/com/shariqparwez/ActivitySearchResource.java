@@ -22,10 +22,12 @@ public class ActivitySearchResource {
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON, javax.ws.rs.core.MediaType.APPLICATION_XML})
-	public Response searchForActivities(@QueryParam(value = "description") List<String> descriptions) {
-		System.out.println(descriptions);
+	public Response searchForActivities(@QueryParam(value = "description") List<String> descriptions,
+			@QueryParam(value = "durationFrom") int durationFrom,
+			@QueryParam(value = "durationTo") int durationTo) {
+		System.out.println(descriptions + ", " + durationFrom + ", " + durationTo);
 		
-		List<Activity> activities = activityRepository.findByDescription(descriptions);
+		List<Activity> activities = activityRepository.findByDescription(descriptions, durationFrom, durationTo);
 	
 		if(activities == null || activities.size() <= 0) {
 			return Response.status(Status.NOT_FOUND).build();
