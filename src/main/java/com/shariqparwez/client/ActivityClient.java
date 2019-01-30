@@ -7,6 +7,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.shariqparwez.model.Activity;
 
@@ -22,11 +23,13 @@ public class ActivityClient {
 		WebTarget target = client.target("http://localhost:8080/exercise-services/webapi/");
 		
 		//Activity response = target.path("activities/" + id).request().get(Activity.class);
-		Activity response = target.path("activities/" + id).request(MediaType.APPLICATION_JSON).get(Activity.class);
+		Response response = target.path("activities/" + id).request(MediaType.APPLICATION_JSON).get(Response.class);
 		
-		System.out.println(response);
+		if(response.getStatus() != 200) {
+			throw new RuntimeException(response.getStatus() + ": there was error on ther server.");
+		}
 		
-		return response;
+		return response.readEntity(Activity.class);
 	
 	}
 	
